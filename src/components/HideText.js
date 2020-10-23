@@ -1,6 +1,6 @@
 
 
-import React from 'react';
+import React, {Component} from 'react';
 import './HideText.css';
 
 
@@ -25,9 +25,7 @@ export default class HideText extends React.Component{
           <div className="HideText">
           <header >
             <div>
-                {
-            
-                   this.state.show? <div><h1 style={{color: 'Purple', fontSize:'7rem', backgroundColor:'Highlight'}}>{this.state.Person.fullName}</h1>
+                {this.state.show? <div><h1 style={{color: 'Purple', fontSize:'7rem', backgroundColor:'Highlight'}}>{this.state.Person.fullName}</h1>
                    <img src={this.state.Person.imgSrc} alt="profilepic"/>
                    <h3 style={{color: 'Green', fontSize:'5rem', backgroundColor:'turquoise' }} >I am a {this.state.Person.profession} </h3>
                        <br></br>
@@ -37,10 +35,10 @@ export default class HideText extends React.Component{
                    </div> : null}
                    
                    <label className="switch">
-                    <input type="checkbox" onClick={()=>{this.setState({show:!this.state.show})}} defaultChecked/>
-                     <span className="slider round" >{ this.state.show? 'Hide' : 'Show'}</span>
+                    <input className="slider" type="checkbox" onClick={()=>{this.setState({show:!this.state.show})}} defaultChecked/>
+                     <span className={this.state.show?"slider round classA":"slider round classB"} >{ this.state.show? 'Hide' : 'Show'}</span>
                      </label>
-                
+                    
                 
                 </div>
           </header>

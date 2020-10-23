@@ -7,11 +7,13 @@ export default class Counter extends React.Component {
     }
   
     componentDidMount() {
-      this.state.timerID = setInterval(
+      this.setState({timerID : setInterval(
         () => this.tick(),
         1000
-      );
+      )
+    }); 
     }
+
   
     componentWillUnmount() {
       clearInterval(this.timerID);
